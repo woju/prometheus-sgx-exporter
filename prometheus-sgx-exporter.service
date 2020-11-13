@@ -1,0 +1,10 @@
+[Unit]
+Description=Prometheus exporter for SGX-related metrics
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/prometheus-sgx-exporter
+User=aesmd
+
+[Install]
+WantedBy=multi-user.target
