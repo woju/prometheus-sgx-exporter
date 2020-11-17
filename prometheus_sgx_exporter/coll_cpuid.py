@@ -82,11 +82,18 @@ def coll_cpuid():
         int(cpuid.is_cpuid_supported))
     yield 'cpuid_is_intel_cpu{{vendor_id="{}"}} {}'.format(
         cpuid.vendor_id, int(cpuid.is_cpuid_supported))
-    yield 'cpuid_max_enclave_size_bytes{{arch="x86"}} {:#x}'.format(
+
+    yield '#cpuid_max_enclave_size_bytes{{arch="x86"}} {:#x}p0'.format(
         cpuid.max_enclave_size_32)
-    yield 'cpuid_max_enclave_size_bytes{{arch="x86_64"}} {:#x}'.format(
+    yield 'cpuid_max_enclave_size_bytes{{arch="x86"}} {}'.format(
+        cpuid.max_enclave_size_32)
+    yield '#cpuid_max_enclave_size_bytes{{arch="x86_64"}} {:#x}p0'.format(
         cpuid.max_enclave_size_64)
-    yield 'cpuid_epc_size_bytes {:#x}'.format(
+    yield 'cpuid_max_enclave_size_bytes{{arch="x86_64"}} {}'.format(
+        cpuid.max_enclave_size_64)
+    yield '#cpuid_epc_size_bytes {:#x}p0'.format(
+        cpuid.epc_size)
+    yield 'cpuid_epc_size_bytes {}'.format(
         cpuid.epc_size)
 
     for cap in cpuid.caps:
