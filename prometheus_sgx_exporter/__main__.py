@@ -28,7 +28,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.wfile.write(resp)
 
 @click.group(invoke_without_command=True)
-@click.option('--listen', default=':9086')
+@click.option('--listen', default=':9765')
 @click.pass_context
 def main(ctx, listen):
     if ctx.invoked_subcommand is not None:
