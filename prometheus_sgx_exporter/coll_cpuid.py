@@ -2,6 +2,11 @@
 # Copyright (c) 2020 Wojtek Porczyk <woju@invisiblethingslab.com>
 # pylint: disable=too-few-public-methods,too-many-instance-attributes
 
+#
+# See also: SDM 2A Table 3-8
+# https://software.intel.com/content/dam/develop/public/us/en/documents/253666-sdm-vol-2a.pdf
+#
+
 import collections
 import ctypes
 import itertools
@@ -29,7 +34,7 @@ class CPUID:
         'is_flc_supported': Bit(0x7, 0x0, 'ecx', 30),
         'is_sgx1_supported': Bit(0x12, 0x0, 'eax', 0),
         'is_sgx2_supported': Bit(0x12, 0x0, 'eax', 1),
-        'is_sgx_virt_supported': Bit(0x12, 0x0, 'eax', 1),
+        'is_sgx_virt_supported': Bit(0x12, 0x0, 'eax', 5),
         'is_sgx_mem_concurrency_supported': Bit(0x12, 0, 'eax', 6),
         'is_cet_supported': Bit(0x12, 0x1, 'eax', 6),
         'is_kss_supported': Bit(0x12, 0x1, 'eax', 7),
